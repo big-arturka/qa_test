@@ -1,5 +1,3 @@
-import time
-
 from tests import Authorization
 
 
@@ -7,7 +5,7 @@ class TestSendingMessage(Authorization):
     MESSAGE_TEXT = 'test message'
 
     def test_send_message_success(self):
-        time.sleep(15)
+        self.driver.implicitly_wait(10)
         self.log_in()
         self.driver.implicitly_wait(10)
         self.driver.find_element_by_id('l_msg').click()

@@ -2,8 +2,8 @@ from selenium import webdriver
 import time
 
 # Укажите существующие логин и пароль от VK
-USERNAME = ''
-PASSWORD = ''
+USERNAME = '+996555980821'
+PASSWORD = '1991701323'
 
 
 class Authorization:
@@ -33,7 +33,7 @@ class TestAuthorization(Authorization):
         self.driver.find_element_by_id('index_email').send_keys(USERNAME)
         self.driver.find_element_by_id('index_pass').send_keys('qwerty')
         self.driver.find_element_by_id('index_login_button').click()
-        time.sleep(3)
+        self.driver.implicitly_wait(10)
         error_message = self.driver.find_element_by_class_name('msg_text')
         message = error_message.find_elements_by_tag_name('b')[0]
         assert message.text == 'Не удаётся войти.'
